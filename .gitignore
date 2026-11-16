@@ -1,0 +1,83 @@
+# Dependency folders
+node_modules/
+.venv/
+venv/
+env/
+ENV/
+site-packages/
+.conda/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.tox/
+.nox/
+.ipynb_checkpoints/
+
+# Build / dist / packaging output
+build/
+dist/
+out/
+*.egg-info/
+.eggs/
+wheels/
+
+# Coverage output
+coverage/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# Large regenerable MCMC / MLE output: scripts write full posterior chains and
+# intermediate caches here; summaries (CSV/JSON) and figures go to results/ or figures/
+chains/
+cache/
+# Cached MLE prior written by crf_predict.py (regenerate with --refit)
+results/crf_prior_*.json
+
+# Answer-revealing output: any script run in check mode (e.g.
+# `crf_predict.py --check`, a future spline-regression script) scores against the
+# hidden su values and writes them out - name such files *_check.* so they stay
+# out of the task repo
+results/crf_check.csv
+results/*_check.*
+figures/*_check.*
+
+# Fitted model files (e.g. spline regression models) - regenerable, binary
+models/
+*.pkl
+*.pickle
+*.joblib
+*.rds
+
+# Spline regression intermediates: cross-validation folds / knot and
+# smoothing-parameter search output, and cached basis (design) matrices.
+# Keep the chosen settings and CV summary as CSV/JSON in results/ instead.
+cv/
+*.npy
+*.npz
+
+# R session files, in case the spline fit is done in R (mgcv / splines)
+.Rhistory
+.RData
+.Rproj.user/
+
+# scikit-learn / joblib on-disk memoization cache
+joblib/
+cachedir/
+
+# Editor / OS clutter (~$* also covers Excel lock files such as ~$BM1_*.xlsx)
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+~$*
+
+# Third-party BM1 benchmark data (Otake et al. 2025): not redistributed in this repo
+*.xlsx
